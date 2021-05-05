@@ -1,0 +1,89 @@
+public class Produto {
+	//Atributos privados
+	private String nomeProduto;
+	private double precoCusto; 
+	private double precoVenda;
+	private double margemLucro;
+	
+		//Construtor
+		public Produto(String nomeProduto, double precoCusto, double precoVenda, double margemLucro) {
+		this.nomeProduto = nomeProduto;
+		this.precoCusto = precoCusto;
+		this.precoVenda = precoVenda;
+		this.margemLucro = margemLucro;
+		}
+	
+	public String getNome() {
+		return nomeProduto;
+	}
+	public void setNome(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+	public double getCusto() {
+		return precoCusto;
+	}
+	public void setCusto(double precoCusto) {
+		this.precoCusto = precoCusto;
+	}
+	public double getVenda() {
+		return precoVenda;
+	}
+	public void setVenda(double precoVenda) {
+		if(this.precoVenda < this.precoCusto){
+			System.out.println("O valor de venda é menor que o valor de compra!!!");
+		}
+		this.precoVenda = precoVenda;
+	}
+	public double getLucro() {
+		return margemLucro;
+	}
+	public void setLucro(double margemLucro) {
+		this.margemLucro = margemLucro;
+	}
+	
+	//Metodo para calcular a margem de lucro da venda
+	double calcularMargemLucro() {
+		this.margemLucro = this.precoVenda - this.precoCusto;
+		return this.margemLucro;
+	}
+	
+	//Metodo para calcular a margem de lucro da venda em porcentagem
+	double getMargemLucroPorcentagem(double porcentagem) {
+		porcentagem = (this.margemLucro / this.precoCusto) * 100;
+		return porcentagem;
+	}
+	//Função imprimir os dados do Produto
+		public void imprimirProduto() {
+			System.out.println("Nome do produto: " +this.getNome());
+			System.out.println("Valor do custo do produto: " +"R$" +this.getCusto());
+			System.out.println("Valor de venda do produto: " +"R$" +this.getVenda());
+			System.out.println("Margem de lucro do produto: " +"R$" +this.calcularMargemLucro());
+			System.out.println("Percentual da margem de lucro: " +this.getMargemLucroPorcentagem(margemLucro) +"%");
+		}
+}
+
+import java.util.Scanner;
+
+public class teste {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Produto p = new Produto(null, 0, 0, 0);
+		
+		System.out.println("Digite o nome do produto: ");
+		p.setNome(sc.nextLine());
+		System.out.println("Digite valor de custo do produto: ");
+		p.setCusto(sc.nextDouble());
+		System.out.println("Digite o valor de venda do produto: ");
+		p.setVenda(sc.nextDouble());
+		
+		if(p.getVenda() < p.getCusto()){
+			System.out.println("Digite o novo valor de venda ou insira o mesmo valor: ");
+			p.setVenda(sc.nextDouble());
+		}
+		
+		p.imprimirProduto();	
+	}
+}
