@@ -1,0 +1,55 @@
+//Classe Modelo
+public class Animal {
+	
+	//Atributos privados
+	private int qntPatas;
+	private String especie;
+	private double peso;
+	
+	//Construtor
+	public Animal(int qntPatas, String especie, double peso) {
+	this.qntPatas = qntPatas;
+	this.especie = especie;
+	this.peso = peso;
+	}
+	//Metodos acessores
+	public int getPatas() {
+		return qntPatas;
+	}
+	public void setPatas (int qntPatas) {
+		this.qntPatas = qntPatas;
+	}
+	public String getEspecie() {
+		return especie;
+	}
+	public void setEspecie (String especie) {
+		this.especie = especie;
+	}
+	public double getPeso() {
+		return peso;
+	}
+	public void setPeso (double peso) {
+		this.peso = peso;
+	}
+	//Função imprimir os dados do Animal
+	public void imprimirAnimal() {
+		System.out.println("Quantidade de patas: " +this.getPatas());
+		System.out.println("Especie: " +this.getEspecie());
+		System.out.println("Peso: " +this.getPeso());
+	}
+}
+
+//Classe Principal
+public class DadosAnimal {
+
+	public static void main(String[] args) {
+		Animal a = new Animal(0, "Homo sapiens", 70);
+		
+		System.out.println("DADOS DO ANIMAL");
+		
+			a.setPatas(4);
+			a.setEspecie("Canis lupus");
+			a.setPeso(10.5);
+			a.imprimirAnimal();
+	}
+}
