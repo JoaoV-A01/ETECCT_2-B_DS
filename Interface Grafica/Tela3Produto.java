@@ -40,7 +40,7 @@ public class Tela3Produto extends JFrame{
 		JComboBox cboUExit = new JComboBox(uexits); 		cboUExit.setBounds(110,150,100,20);
 		
 		JLabel lblQSubdiv = new JLabel("Qt. Subdivisão:");  lblQSubdiv.setBounds(10,180,100,20);
-		JTextField txtQSubdiv = new JTextField(10);			txtQSubdiv.setBounds(110,180,120,20);
+		JTextField txtQSubdiv = new JTextField(10);			txtQSubdiv.setBounds(110,180,150,20);
 		
 		add(lblDesc);    add(txtDesc);
 		add(lblEspe);    add(cboEspe);
